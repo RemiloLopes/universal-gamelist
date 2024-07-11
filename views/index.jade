@@ -1,0 +1,20 @@
+html
+  head
+    link(rel="stylesheet", href="/static/css/style.css")
+    title!= title
+  body
+    button#topButton(onclick="topFunction()", title="Go To Top") Top
+    h1 Lista de Jogos
+    div
+      form(action="/searchbar", method="post") 
+        input#searchInput(type="text",name="gameName",placeholder="Procure um jogo:")
+    div#searchResults
+      table
+        tr
+          th.namecell Nome
+          th.platform Plataforma
+        each game in allGames
+          tr
+            td.namecell= game.name
+            td.platform= game.plataforma
+  script(src='/static/index.js')
